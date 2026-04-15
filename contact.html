@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paddy N Canal - Premium Backwater Homestay in Alleppey by Rino.">
+    <title>Paddy N Canal | Authentic Kerala Luxury</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 30K LUXURY CSS STYLES (Approx 150+ lines) --- */
+        :root {
+            --primary: #1a472a; /* Jungle Green */
+            --accent: #c5a059;  /* Heritage Gold */
+            --white: #ffffff;
+            --bg: #f8f9f8;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: #333; overflow-x: hidden; }
+
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
+
+        /* Glassmorphism Nav */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: #444; font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Section Universal Styling */
+        section { min-height: 100vh; padding: 120px 10%; position: relative; display: flex; align-items: center; }
+
+        /* HERO SECTION */
+        .hero { background: var(--primary); color: white; padding-top: 150px; overflow: hidden; }
+        .hero-content { max-width: 700px; z-index: 2; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 5.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero-content h1 span { color: var(--accent); font-style: italic; }
+        .hero-content p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; line-height: 1.8; }
+
+        /* ROOMS SECTION */
+        .rooms { background: white; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 50px; text-align: center; }
+        .room-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; width: 100%; }
+        .room-card { background: var(--bg); border-radius: 20px; overflow: hidden; transition: var(--transition); border: 1px solid #eee; }
+        .room-card:hover { transform: translateY(-15px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .room-img { height: 250px; background: #ddd; position: relative; }
+        .room-img img { width: 100%; height: 100%; object-fit: cover; }
+        .room-info { padding: 30px; }
+        .room-info h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
+
+        /* EXPERIENCE SECTION */
+        .experience { background: var(--primary); color: white; }
+        .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .exp-list { list-style: none; }
+        .exp-list li { margin-bottom: 20px; padding-left: 30px; position: relative; }
+        .exp-list li::before { content: '✦'; position: absolute; left: 0; color: var(--accent); }
+
+        /* CONTACT FORM */
+        .contact { background: #fff; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .contact-form input, .contact-form textarea { padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
+        .btn-gold { padding: 15px 40px; background: var(--accent); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; text-transform: uppercase; transition: var(--transition); text-decoration: none; display: inline-block; text-align: center; }
+        .btn-gold:hover { background: #a38445; transform: scale(1.05); }
+
+        /* Floating WhatsApp */
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); z-index: 1001; transition: 0.3s; }
+        .wa-float:hover { transform: scale(1.1) rotate(10deg); }
+
+        /* Footer */
+        footer { padding: 50px 10%; background: #111; color: white; text-align: center; }
+
+        /* Responsiveness */
+        @media (max-width: 900px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .exp-grid, .contact-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Paddy N Canal</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Location</a></li>
+        </ul>
+        <a href="https://wa.me/919645963812" class="btn-gold" style="padding: 10px 25px; font-size: 0.8rem;">Book Now</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate-up">Modern Comfort.<br><span>Backwater Soul.</span></h1>
+            <p class="animate-up">Welcome to Rino's family retreat. We’ve combined the heritage of Alleppey with premium amenities to give you a 5-star experience at a local price.</p>
+            <div class="animate-up">
+                <a href="#rooms" class="btn-gold">Explore the Villa</a>
+            </div>
+        </div>
+        <svg style="position:absolute; right: -100px; opacity: 0.1;" width="800" height="800" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#FFFFFF" d="M44.7,-76.4C58.1,-69.2,69.2,-58.1,76.4,-44.7C83.7,-31.3,87.1,-15.7,85.8,-0.8C84.4,14.1,78.3,28.2,71.1,41.6C63.8,55,55.4,67.7,43.9,74.8C32.4,81.9,17.8,83.4,3,78.3C-11.8,73.2,-26.8,61.4,-39.8,51.3C-52.8,41.1,-63.8,32.6,-71.4,21.3C-79,10,-83.1,-4.2,-80.6,-17.8C-78,-31.4,-68.8,-44.4,-57.1,-52.8C-45.4,-61.2,-31.2,-64.9,-17.8,-72.1C-4.4,-79.3,8.2,-90,24.1,-91.1C40,-92.2,44.7,-76.4,44.7,-76.4Z" transform="translate(100 100)" />
+        </svg>
+    </section>
+
+    <section id="rooms" class="rooms">
+        <div style="width: 100%;">
+            <h2 class="section-title">The Luxury Collection</h2>
+            <div class="room-grid">
+                <div class="room-card">
+                    <div class="room-img"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974" alt="Premium Room"></div>
+                    <div class="room-info">
+                        <h3>Grand Heritage Suite</h3>
+                        <p>Our largest room featuring teak wood interiors and a private balcony overlooking the canal.</p>
+                        <ul style="margin: 15px 0; font-size: 0.9rem; color: #666; list-style: none;">
+                            <li><i class="fas fa-check"></i> King Size Bed</li>
+                            <li><i class="fas fa-check"></i> Premium Air Conditioning</li>
+                        </ul>
+                        <a href="#contact" class="btn-gold">Check Dates</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-img"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=1974" alt="Deluxe Room"></div>
+                    <div class="room-info">
+                        <h3>Canal View Deluxe</h3>
+                        <p>Perfect for couples. Wake up to the gentle splash of water and the morning sun.</p>
+                        <a href="#contact" class="btn-gold">Check Dates</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="exp-grid">
+            <div>
+                <h2 class="section-title" style="text-align: left; color: white;">More than just <br>a Stay.</h2>
+                <p style="margin-bottom: 30px; opacity: 0.8;">We curate the best of Alleppey for our guests. Rino personally oversees every boat trip and meal.</p>
+                <ul class="exp-list">
+                    <li><strong>Sunrise Shikara:</strong> Glide through narrow canals before the crowds.</li>
+                    <li><strong>Traditional Kitchen:</strong> Authentic Kerala Sadhya cooked by the family.</li>
+                    <li><strong>Village Walks:</strong> Explore the hidden paths of Alappuzha with a local.</li>
+                    <li><strong>Fishing Trips:</strong> Try your hand at traditional Kerala fishing.</li>
+                </ul>
+            </div>
+            <div style="border-radius: 30px; overflow: hidden; height: 500px;">
+                <img src="https://images.unsplash.com/photo-1593693411515-c202e93db761?q=80&w=2070" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div>
+                <h2 class="section-title" style="text-align: left;">Ready to Book?</h2>
+                <p style="margin-bottom: 40px;">Skip the 20% commission on apps. Contact Rino directly for the best rates.</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="email" placeholder="Your Email Address" required>
+                    <textarea rows="5" placeholder="Which dates are you planning to visit?"></textarea>
+                    <button class="btn-gold">Send Inquiry to Rino</button>
+                </form>
+            </div>
+            <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.24156683515!2d76.3312!3d9.4981!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjknNTMuMiJOIDc2wrAxOSc1Mi4zIkU!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">Paddy N Canal</h2>
+        <p>Alappuzha, Kerala, India | +91 96459 63812</p>
+        <div style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">
+            Built by Agresita Infotech | Premium Portfolio Series
+        </div>
+    </footer>
+
+    <a href="https://wa.me/919645963812" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp" style="color: white; font-size: 35px;"></i>
+    </a>
+
+    <script>
+        // --- 30K LUXURY ANIMATIONS (GSAP) ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Pre-loader Simulation
+        window.addEventListener('load', () => {
+            gsap.from(".animate-up", {
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power4.out"
+            });
+        });
+
+        // Room Card Scroll Animations
+        gsap.utils.toArray('.room-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 90%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
+        });
+
+        // Navigation Active State Change
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove("active");
+                if (a.getAttribute("href").includes(current)) {
+                    a.style.color = "var(--accent)";
+                } else {
+                    a.style.color = "#444";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
